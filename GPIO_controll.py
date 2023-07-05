@@ -12,4 +12,5 @@ def changePinOut(pin, high):
     else:
         GPIO.output(pin, GPIO.LOW)
 
-GPIO.cleanup()
+def cleanUp():
+    GPIO.cleanup()
