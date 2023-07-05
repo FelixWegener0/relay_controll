@@ -3,8 +3,9 @@ import time
 
 GPIO.setmode(GPIO.BOARD)
 
-# GPIO.setup(led, GPIO.OUT)
-# GPIO.setup(switch, GPIO.IN)
+def setUp(pinArray):
+    for pin in pinArray:
+        GPIO.setup(pin, GPIO.OUT)
 
 def changePinOut(pin, high):
     if (high):
