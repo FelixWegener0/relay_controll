@@ -25,6 +25,6 @@ api.add_resource(changeRelayLow, "/relayLow")
 
 
 if (__name__ == "__main__"):
-    gpio.setUp([14])
+    gpio.setUp(14)
     app.run(host='0.0.0.0')
     gpio.cleanUp()

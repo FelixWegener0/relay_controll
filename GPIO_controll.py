@@ -3,9 +3,8 @@ import time
 
 GPIO.setmode(GPIO.BOARD)
 
-def setUp(pinArray):
-    for pin in pinArray:
-        GPIO.setup(pin, GPIO.OUT)
+def setUp(pin):
+    GPIO.setup(pin, GPIO.OUT)
 
 def changePinOut(pin, high):
     if (high):
