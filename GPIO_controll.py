@@ -6,6 +6,7 @@ GPIO.setmode(GPIO.BCM)
 def setUp(pinArray):
     for pin in pinArray:
         GPIO.setup(pin, GPIO.OUT)
+        GPIO.output(pin, GPIO.LOW)
 
 def changePinOut(pin, high):
     if (high):
