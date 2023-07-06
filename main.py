@@ -10,14 +10,21 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 api = Api(app)
 
-class changeRelay(Resource):
-    def post(self):
-        gpio.changePinOut(1, True)
+class changeRelayHigh(Resource):
+    def get(self):
+        gpio.changePinOut(14, True)
         return jsonify('success')
 
-api.add_resource(changeRelay, "/relay")
+class changeRelayLow(Resource):
+    def get(self):
+        gpio.changePinOut(14, False)
+        return jsonify('success')
+
+api.add_resource(changeRelayHigh, "/relayHigh")
+api.add_resource(changeRelayLow, "/relayLow")
+
 
 if (__name__ == "__main__"):
-    gpio.setUp([])
+    gpio.setUp([14])
     app.run(host='0.0.0.0')
     gpio.cleanUp()
